@@ -35,12 +35,21 @@ def generate_launch_description():
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-topic', 'robot_description', '-entity', 'simple_robot'],
+        arguments=['-topic', 'robot_description', '-entity', 'hospital_amr'],
         output='screen'
     )
+    
+    # TODO: Add teammate nodes here as they're completed
+    # Example:
+    # yolo_node = Node(
+    #     package='amr_perception',
+    #     executable='yolo_detector',
+    #     name='yolo_detector'
+    # )
     
     return LaunchDescription([
         gazebo,
         robot_state_publisher,
-        spawn_entity
+        spawn_entity,
+        # Add teammate nodes here when ready
     ])
